@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_adminPassword": {
+            "value": "Password.1"
+        },
+        "virtualMachines_name": {
+            "value": "cnyredhat002"
+        },
+        "networkInterfaces_name": {
+            "value": "cnyredhat002nic"
+        },
+        "networkSecurityGroups_name": {
+            "value": "cnyredhat002nsg"
+        },
+        "publicIPAddresses_name": {
+            "value": "cnyredhat002vip"
+        },
+        "networkInterfaces_id": {
+            "value": "/subscriptions/c8aef078-da53-4b8f-9b27-4008aa08e1c6/resourceGroups/arm-vnets/providers/Microsoft.Network/virtualNetworks/arm-vnet1/subnets/default"
+        }
+    }
+}
