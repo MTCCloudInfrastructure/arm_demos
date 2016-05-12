@@ -6,16 +6,16 @@
             "value": "Password.1"
         },
         "virtualMachines_name": {
-            "value": "cnyredhat002"
+            "value": "cnyredhat003"
         },
         "networkInterfaces_name": {
-            "value": "cnyredhat002nic"
+            "value": "cnyredhat003nic"
         },
         "networkSecurityGroups_name": {
-            "value": "cnyredhat002nsg"
+            "value": "cnyredhat003nsg"
         },
         "publicIPAddresses_name": {
-            "value": "cnyredhat002vip"
+            "value": "cnyredhat003vip"
         },
         "networkInterfaces_id": {
             "value": "/subscriptions/c8aef078-da53-4b8f-9b27-4008aa08e1c6/resourceGroups/arm-vnets/providers/Microsoft.Network/virtualNetworks/arm-vnet1/subnets/default"
