@@ -15,7 +15,7 @@
             "value": "microsoft"
         },
         "storageAccountName": {
-            "value": "rhelvm0018756"
+            "value": "rhelvm001blob"
         },
         "virtualNetworkName": {
             "value": "rhelvm001vnet"
