@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualMachines_adminPassword": {
-            "Value": null,
+            "defaultValue": "Password.1",
             "type": "SecureString"
         },
         "virtualMachines_name": {
