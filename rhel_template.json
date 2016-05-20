@@ -27,7 +27,7 @@
             "value": "rhelvm001"
         },
         "adminPassword": {
-            "value": "This154Demo"
+            "value": "This154Demo",
             "type": "SecureString"
         },
         "subnetName": {
