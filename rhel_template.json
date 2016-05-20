@@ -3,28 +3,22 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualMachines_adminPassword": {
-            "defaultValue": "This15ADemo",
-            "type": "SecureString"
+            "value": "This15ADemo"
         },
         "virtualMachines_name": {
-            "defaultValue": "REDHATVM001",
-            "type": "String"
+            "value": "REDHATVM001"
         },
         "networkInterfaces_name": {
-            "defaultValue": "REDHATVM001NIC",
-            "type": "String"
+            "value": "REDHATVM001NIC"
         },
         "networkSecurityGroups_name": {
-            "defaultValue": "REDHATVM001NSG",
-            "type": "String"
+            "value": "REDHATVM001NSG"
         },
         "publicIPAddresses_name": {
-            "defaultValue": "REDHATVM001VIP",
-            "type": "String"
+            "value": "REDHATVM001VIP"
         },
         "networkInterfaces_id": {
-            "defaultValue": "REDHATVM001VLAN",
-            "type": "String"
+            "value": "REDHATVM001VLAN"
         },
     },
     "variables": {},
