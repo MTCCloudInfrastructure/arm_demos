@@ -3,29 +3,25 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualMachines_adminPassword": {
-            "defaultValue": thisisademo,
+            "defaultValue": "This15ADemo",
             "type": "SecureString"
         },
         "virtualMachines_name": {
-            "defaultValue": "cnyredhat001",
+            "defaultValue": "REDHATVM001",
             "type": "String"
         },
         "networkInterfaces_name": {
-            "defaultValue": "cnyredhat001433",
+            "defaultValue": "REDHATVM001NIC",
             "type": "String"
         },
         "networkSecurityGroups_name": {
-            "defaultValue": "cnyredhat001",
+            "defaultValue": "REDHATVM001NSG",
             "type": "String"
         },
         "publicIPAddresses_name": {
-            "defaultValue": "cnyredhat001",
+            "defaultValue": "REDHATVM001VIP",
             "type": "String"
         },
-        "networkInterfaces_id": {
-            "defaultValue": "/subscriptions/c8aef078-da53-4b8f-9b27-4008aa08e1c6/resourceGroups/arm-vnets/providers/Microsoft.Network/virtualNetworks/arm-vnet1/subnets/default",
-            "type": "String"
-        }
     },
     "variables": {},
     "resources": [
