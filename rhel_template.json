@@ -22,6 +22,10 @@
             "defaultValue": "REDHATVM001VIP",
             "type": "String"
         },
+        "networkInterfaces_id": {
+            "defaultValue": "REDHATVM001VLAN",
+            "type": "String"
+        },
     },
     "variables": {},
     "resources": [
