@@ -1,0 +1,153 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_adminPassword": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "virtualMachines_name": {
+            "defaultValue": "cnyredhat001",
+            "type": "String"
+        },
+        "networkInterfaces_name": {
+            "defaultValue": "cnyredhat001433",
+            "type": "String"
+        },
+        "networkSecurityGroups_name": {
+            "defaultValue": "cnyredhat001",
+            "type": "String"
+        },
+        "publicIPAddresses_name": {
+            "defaultValue": "cnyredhat001",
+            "type": "String"
+        },
+        "networkInterfaces_id": {
+            "defaultValue": "/subscriptions/c8aef078-da53-4b8f-9b27-4008aa08e1c6/resourceGroups/arm-vnets/providers/Microsoft.Network/virtualNetworks/arm-vnet1/subnets/default",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/c8aef078-da53-4b8f-9b27-4008aa08e1c6/resourceGroups/cnyredhat001rg/providers/Microsoft.Compute/virtualMachines/cnyredhat001'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_name')]",
+            "apiVersion": "2015-06-15",
+            "location": "centralus",
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_A2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "RedHat",
+                        "offer": "RHEL",
+                        "sku": "7.2",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "name": "[parameters('virtualMachines_name')]",
+                        "createOption": "FromImage",
+                        "vhd": {
+                            "uri": "[concat('https://cnyinfravmscentral.blob.core.windows.net/vhds/', parameters('virtualMachines_name'),'201631911127.vhd')]"
+                        },
+                        "caching": "ReadWrite"
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_name')]",
+                    "adminUsername": "contosony",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false
+                    },
+                    "secrets": [],
+                    "adminPassword": "[parameters('virtualMachines_adminPassword')]"
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_name'))]"
+                        }
+                    ]
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c8aef078-da53-4b8f-9b27-4008aa08e1c6/resourceGroups/cnyredhat001rg/providers/Microsoft.Network/networkInterfaces/cnyredhat001433'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_name')]",
+            "apiVersion": "2015-06-15",
+            "location": "centralus",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAddress": "10.1.0.5",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[parameters('networkInterfaces_id')]"
+                            }
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableIPForwarding": false,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_name'))]"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c8aef078-da53-4b8f-9b27-4008aa08e1c6/resourceGroups/cnyredhat001rg/providers/Microsoft.Network/networkSecurityGroups/cnyredhat001'.",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('networkSecurityGroups_name')]",
+            "apiVersion": "2015-06-15",
+            "location": "centralus",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "default-allow-ssh",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 1000,
+                            "direction": "Inbound"
+                        }
+                    }
+                ]
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c8aef078-da53-4b8f-9b27-4008aa08e1c6/resourceGroups/cnyredhat001rg/providers/Microsoft.Network/publicIPAddresses/cnyredhat001'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddresses_name')]",
+            "apiVersion": "2015-06-15",
+            "location": "centralus",
+            "properties": {
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4
+            },
+            "dependsOn": []
+        }
+    ]
+}
