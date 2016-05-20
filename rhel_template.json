@@ -3,40 +3,40 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "type": "String"
+            "value": "centralus"
         },
         "virtualMachineName": {
-            "type": "String"
+            "value": "rhelvm001"
         },
         "virtualMachineSize": {
-            "type": "String"
+            "value": "Standard_A2"
         },
         "adminUsername": {
-            "type": "String"
+            "value": "microsoft"
         },
         "storageAccountName": {
-            "type": "String"
+            "value": "rhelvm001blob"
         },
         "virtualNetworkName": {
-            "type": "String"
+            "value": "rhelvm001vnet"
         },
         "networkInterfaceName": {
-            "type": "String"
+            "value": "rhelvm001790"
         },
         "networkSecurityGroupName": {
-            "type": "String"
+            "value": "rhelvm001"
         },
         "adminPassword": {
-            "type": "SecureString"
+            "value": "This154Demo"
         },
         "subnetName": {
-            "type": "String"
+            "value": "default"
         },
         "publicIpAddressName": {
-            "type": "String"
+            "value": "rhelvm001"
         },
         "publicIpAddressType": {
-            "type": "String"
+            "value": "Dynamic"
         }
     },
     "variables": {
