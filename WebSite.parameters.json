@@ -1,0 +1,18 @@
+﻿{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+  "parameters": {
+    "hostingPlanName": {
+      "value": "CoffeeWebApp"
+    },
+    "skuName": {
+      "value": "F1"
+    },
+    "skuCapacity": {
+      "value": 1
+    },
+    "WebAppPkgLocation": {
+      "value": "https://cnyarmlabs.blob.core.windows.net/azrit302blobcntr01/CoffeeWebApp.zip"
+        }
+      }
+    }
